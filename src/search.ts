@@ -2,27 +2,27 @@ import { RxHR } from '@akanass/rx-http-request';
 import { Observable } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
 import { Element } from 'xml-js/types';
+import { getElementValue } from './helpers/get-element-value.helper';
 import { xmlToJs } from './helpers/xml-to-js.helper';
 import { SearchParameters, SearchResult } from './interfaces';
 import API_ROUTES from './routes';
 
 const mapData = (elements: Element[]): SearchResult[] => {
   return elements.map((element) => {
-    const name = element.elements?.filter((x) => x.name === 'name')[0];
-    const yearPublished = element.elements?.filter(
-      (x) => x.name === 'yearpublished'
-    )[0];
-    const searchResult = {
+    const elem = getElementValue(element);
+    const name = elem('name')?.value;
+    const type = elem('name')?.type;
+    const yearPublished = elem('yearpublished')?.value;
+    const result = {
       id: Number(element.attributes?.id),
       type: element.attributes?.type,
-      name: name?.attributes?.value,
-      isNameAlternate: name?.attributes?.type === 'alternate'
+      name,
+      isNameAlternate: type === 'alternate'
     } as SearchResult;
 
-    if (yearPublished)
-      searchResult.yearPublished = Number(yearPublished?.attributes?.value);
+    if (yearPublished) result.yearPublished = Number(yearPublished);
 
-    return searchResult;
+    return result;
   });
 };
 
