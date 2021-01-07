@@ -103,7 +103,7 @@ hot({ types });
 
 ```typescript
 const parameters: HotParameters = {
-  query: 'boardgame'
+  type: 'boardgame'
 };
 
 Geekdo.hot(parameters).subscribe(
