@@ -13,10 +13,10 @@ const xmlConvertingOptions: Options.XML2JS = {
 const xmlToJs = (data: string): SearchResult[] => {
   const unformatedSearchResults: Element[] = xml2js(data, xmlConvertingOptions)
     .elements[0].elements;
-  return unformatedSearchResults.map(shiftData);
+  return unformatedSearchResults.map(mapData);
 };
 
-const shiftData = (element: Element): SearchResult => {
+const mapData = (element: Element): SearchResult => {
   const name = element.elements?.filter((x) => x.name === 'name')[0];
   const yearPublished = element.elements?.filter(
     (x) => x.name === 'yearpublished'
