@@ -1,7 +1,7 @@
 import { RxHR } from '@akanass/rx-http-request';
 import { Observable } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
-import { xml2js, xml2json } from 'xml-js';
+import { xml2js } from 'xml-js';
 import { Element, Options } from 'xml-js/types';
 import { SearchParameters, SearchResult } from './interfaces';
 
