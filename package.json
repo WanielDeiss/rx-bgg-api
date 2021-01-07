@@ -12,7 +12,6 @@
     "type": "git",
     "url": "git+ssh://git@github.com:WanielDeiss/rx-bgg-api.git"
   },
-  "private": "false",
   "scripts": {
     "build": "tsc",
     "lint": "eslint . --ext .ts",
