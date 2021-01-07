@@ -1,4 +1,4 @@
-# Rx Bgg API
+# Geekdo SDK
 
 RxJS based BoardGameGeek API Package, fully written in Typescript.
 
@@ -14,7 +14,7 @@ $ yarn add rx-bgg-api
 
 ## Usage
 
-Rx Bgg API is designed to be the simplest way to call the BoardGameGeek XMLAPI2 and get an fully typed object.
+Geekdo SDK is designed to be the simplest way to call the BoardGameGeek XMLAPI2 and get an fully typed object.
 
 ```typescript
 import * as BggApi from 'rx-bgg-api';
