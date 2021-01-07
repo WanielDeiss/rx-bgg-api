@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
 import { xml2js, xml2json } from 'xml-js';
 import { Element, Options } from 'xml-js/types';
-import { SearchParameters, SearchResult } from './search.interfaces';
+import { SearchParameters, SearchResult } from './interfaces';
 
 const ROOT_URL = 'https://api.geekdo.com/xmlapi2';
 const SEARCH_URI = `${ROOT_URL}/search`;
