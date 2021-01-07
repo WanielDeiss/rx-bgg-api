@@ -5,14 +5,14 @@ RxJS based BoardGameGeek API Package, fully written in Typescript.
 ## Installation
 
 ```bash
-npm install --save @wanieldeiss/rx-bgg-api
+npm install --save rx-bgg-api
 ```
 
 ## Usage
 
 ```typescript
-import * as BggApi from '@wanieldeiss/rx-bgg-api';
-import { SearchParameters } from '@wanieldeiss/rx-bgg-api/interfaces';
+import * as BggApi from 'rx-bgg-api';
+import { SearchParameters } from 'rx-bgg-api/interfaces';
 
 const searchParameters: SearchParameters = {
   query: '7 Wonders',
