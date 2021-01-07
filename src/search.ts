@@ -23,13 +23,17 @@ const shiftData = (element: Element): SearchResult => {
   const yearPublished = element.elements?.filter(
     (x) => x.name === 'yearpublished'
   )[0];
-  return {
+  const searchResult = {
     id: Number(element.attributes?.id),
     type: element.attributes?.type,
     name: name?.attributes?.value,
-    isNameAlternate: name?.attributes?.type === 'alternate',
-    yearPublished: Number(yearPublished?.attributes?.value)
+    isNameAlternate: name?.attributes?.type === 'alternate'
   } as SearchResult;
+
+  if (yearPublished)
+    searchResult.yearPublished = Number(yearPublished?.attributes?.value);
+
+  return searchResult;
 };
 
 export const search = (args: SearchParameters): Observable<SearchResult[]> => {
