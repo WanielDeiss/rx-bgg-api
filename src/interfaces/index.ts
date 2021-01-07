@@ -1,1 +1,1 @@
-export * from './search.interfaces';
+export * from './search.interface';
