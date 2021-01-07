@@ -59,19 +59,20 @@ Geekdo.search(parameters).subscribe(
 ```json
 [
   {
-    id: 1234,
-    type: 'boardgame',
-    name: '7 Dans',
-    isNameAlternate: false,
-    yearPublished: 1988
+    "id": 1234,
+    "type": "boardgame",
+    "name": "7 Dans",
+    "isNameAlternate": false,
+    "yearPublished": 1988
   },
   {
-    id: 4321,
-    type: 'boardgame',
-    name: 'Settlers of Sina',
-    isNameAlternate: true,
-    yearPublished: 1994
+    "id": 4321,
+    "type": "boardgame",
+    "name": "Settlers of Sina",
+    "isNameAlternate": true,
+    "yearPublished": 1994
   }
+]
 ```
 
 ### hot({ types })
