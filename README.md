@@ -1,6 +1,16 @@
 # Geekdo SDK
 
-RxJS based BoardGameGeek API Package, fully written in Typescript.
+Geekdo SDK is designed to be the simplest way to call the BoardGameGeek XMLAPI2 and get an fully typed object.
+
+## Table of contents
+
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [References](#References)
+  - [search](#search)
+  - [hot](#hot)
+- [Contributing](#Contributing)
+- [License](#License)
 
 ## Installation
 
@@ -14,8 +24,6 @@ $ yarn add geekdo-sdk
 
 ## Usage
 
-Geekdo SDK is designed to be the simplest way to call the BoardGameGeek XMLAPI2 and get an fully typed object.
-
 ```typescript
 import * as Geekdo from 'rx-bgg-api';
 import { SearchParameters } from 'rx-bgg-api/interfaces';
@@ -25,7 +33,11 @@ Detailed informations under the referenc section
 
 ## References
 
-### search({ query, type, exact })
+### search
+
+```typescript
+search({ query, type, exact });
+```
 
 **Parameters**
 
@@ -75,7 +87,11 @@ Geekdo.search(parameters).subscribe(
 ]
 ```
 
-### hot({ types })
+### hot
+
+```typescript
+hot({ types });
+```
 
 **Parameters**
 
