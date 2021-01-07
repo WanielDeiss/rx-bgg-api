@@ -13,7 +13,6 @@ const xmlConvertingOptions: Options.XML2JS = {
 };
 
 const xmlToJs = (data: string): SearchResult[] => {
-  console.log(xmlToJs);
   const unformatedSearchResults: Element[] = xml2js(data, xmlConvertingOptions)
     .elements[0].elements;
   return unformatedSearchResults.map(shiftData);
@@ -33,9 +32,9 @@ const shiftData = (element: Element): SearchResult => {
   } as SearchResult;
 };
 
-export const search = (params: SearchParameters): Observable<any> => {
-  let getParams: string[] = [];
-  for (let [key, value] of Object.entries(params)) {
+export const search = (args: SearchParameters): Observable<SearchResult[]> => {
+  const getParams: string[] = [];
+  for (let [key, value] of Object.entries(args)) {
     value = key === 'query' ? value.replace(' ', '+') : value;
     getParams.push(`${key}=${value}`);
   }
