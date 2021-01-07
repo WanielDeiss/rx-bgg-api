@@ -4,6 +4,15 @@
   "description": "RxJS based BoardGameGeek API Package, fully written in Typescript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/WanielDeiss/rx-bgg-api/issues"
+  },
+  "homepage": "https://github.com/WanielDeiss/rx-bgg-api/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:WanielDeiss/rx-bgg-api.git"
+  },
+  "private": "false",
   "scripts": {
     "build": "tsc",
     "lint": "eslint . --ext .ts",
