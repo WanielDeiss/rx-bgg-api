@@ -16,5 +16,5 @@ export interface SearchResult {
   type: SearchTypes;
   name: string;
   isNameAlternate: boolean;
-  yearPublished: number;
+  yearPublished?: number;
 }
