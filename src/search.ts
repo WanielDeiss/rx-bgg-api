@@ -34,6 +34,7 @@ const shiftData = (element: Element): SearchResult => {
 
 export const search = (args: SearchParameters): Observable<SearchResult[]> => {
   const getParams: string[] = [];
+  // eslint-disable-next-line prefer-const
   for (let [key, value] of Object.entries(args)) {
     value = key === 'query' ? value.replace(' ', '+') : value;
     getParams.push(`${key}=${value}`);
