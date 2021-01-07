@@ -4,9 +4,7 @@ import { map, pluck } from 'rxjs/operators';
 import { xml2js } from 'xml-js';
 import { Element, Options } from 'xml-js/types';
 import { SearchParameters, SearchResult } from './interfaces';
-
-const ROOT_URL = 'https://api.geekdo.com/xmlapi2';
-const SEARCH_URI = `${ROOT_URL}/search`;
+import API_ROUTES from './routes';
 
 const xmlConvertingOptions: Options.XML2JS = {
   trim: true
@@ -43,7 +41,7 @@ export const search = (args: SearchParameters): Observable<SearchResult[]> => {
     value = key === 'query' ? value.replace(' ', '+') : value;
     getParams.push(`${key}=${value}`);
   }
-  return RxHR.get(`${SEARCH_URI}/?${getParams.join('&')}`).pipe(
+  return RxHR.get(`${API_ROUTES.SEARCH}/?${getParams.join('&')}`).pipe(
     pluck('body'),
     map(xmlToJs)
   );
