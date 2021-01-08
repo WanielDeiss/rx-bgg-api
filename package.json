@@ -1,6 +1,6 @@
 {
   "name": "geekdo-sdk",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "RxJS based BoardGameGeek API (geekdo.com) Package, fully written in Typescript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

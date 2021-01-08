@@ -25,8 +25,8 @@ $ yarn add geekdo-sdk
 ## Usage
 
 ```typescript
-import * as Geekdo from 'rx-bgg-api';
-import { SearchParameters } from 'rx-bgg-api/interfaces';
+import * as Geekdo from 'geekdo-sdk';
+import { SearchParameters } from 'geekdo-sdk/interfaces';
 ```
 
 Detailed informations under the referenc section
