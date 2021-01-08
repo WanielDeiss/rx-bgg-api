@@ -26,7 +26,7 @@ const mapData = (elements: Element[]): SearchResult[] => {
   });
 };
 
-export const search = (args: SearchParameters): Observable<any> => {
+export const search = (args: SearchParameters): Observable<SearchResult[]> => {
   const getParams: string[] = [];
   // eslint-disable-next-line prefer-const
   for (let [key, value] of Object.entries(args)) {

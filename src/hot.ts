@@ -26,7 +26,7 @@ const mapData = (elements: Element[]): HotResult[] => {
   });
 };
 
-export const hot = (args: HotParameters): Observable<any> => {
+export const hot = (args: HotParameters): Observable<HotResult[]> => {
   return RxHR.get(`${API_ROUTES.HOT}/?type=${args.type}`).pipe(
     pluck('body'),
     map(xmlToJs),
