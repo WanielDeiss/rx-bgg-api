@@ -2,14 +2,14 @@ import { RxHR } from '@akanass/rx-http-request';
 import { Observable } from 'rxjs';
 import { map, pluck, tap } from 'rxjs/operators';
 import { Element } from 'xml-js/types';
-import { getElementValue } from './helpers/get-element-value.helper';
+import { getElement } from './helpers/get-element-value.helper';
 import { xmlToJs } from './helpers/xml-to-js.helper';
 import { HotParameters, HotResult } from './interfaces/hot.interface';
 import API_ROUTES from './routes';
 
 const mapData = (elements: Element[]): HotResult[] => {
   return elements.map((element) => {
-    const elem = getElementValue(element);
+    const elem = getElement(element);
     const name = elem('name')?.value;
     const thumbnail = elem('thumbnail')?.value;
     const yearPublished = elem('yearpublished')?.value;

@@ -7,6 +7,7 @@ Geekdo SDK is designed to be the simplest way to call the BoardGameGeek XMLAPI2 
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [References](#References)
+  - [user](#user)
   - [search](#search)
   - [hot](#hot)
 - [Contributing](#Contributing)
@@ -32,6 +33,57 @@ import { SearchParameters } from 'geekdo-sdk/interfaces';
 Detailed informations under the referenc section
 
 ## References
+
+### user
+
+```typescript
+user({ name });
+```
+
+**Parameters**
+
+| Name | Type   | Description             |
+| ---- | ------ | ----------------------- |
+| name | string | Specifies the user name |
+
+**Usage**
+
+```typescript
+const parameters: UserParameters = {
+  name: 'wanieldeiss'
+};
+
+Geekdo.user(parameters).subscribe(
+  (res) => {
+    console.log('Response:', res);
+  },
+  (err) => {
+    console.error(err);
+  }
+);
+```
+
+**Response**
+
+```json
+{
+  "firstname": "Daniel",
+  "lastname": "",
+  "avatarLink": "N/A",
+  "yearRegistered": 2019,
+  "lastLogin": "2021-01-05",
+  "stateOrProvince": "Bayern",
+  "country": "Germany",
+  "webaddress": "https://sircode.xyz",
+  "xboxAccount": "",
+  "wiiAccount": "",
+  "psnAccount": "",
+  "battleNetAccount": "",
+  "steamAccount": "",
+  "traderRating": 0,
+  "marketRating": 0
+}
+```
 
 ### search
 

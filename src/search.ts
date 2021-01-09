@@ -2,14 +2,14 @@ import { RxHR } from '@akanass/rx-http-request';
 import { Observable } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
 import { Element } from 'xml-js/types';
-import { getElementValue } from './helpers/get-element-value.helper';
+import { getElement } from './helpers/get-element-value.helper';
 import { xmlToJs } from './helpers/xml-to-js.helper';
 import { SearchParameters, SearchResult } from './interfaces';
 import API_ROUTES from './routes';
 
 const mapData = (elements: Element[]): SearchResult[] => {
   return elements.map((element) => {
-    const elem = getElementValue(element);
+    const elem = getElement(element);
     const name = elem('name')?.value;
     const type = elem('name')?.type;
     const yearPublished = elem('yearpublished')?.value;
