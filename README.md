@@ -11,6 +11,7 @@ Geekdo SDK is designed to be the simplest way to call the BoardGameGeek XMLAPI2 
 - [References](#References)
   - [user](#user)
   - [search](#search)
+  - [thing](#thing)
   - [hot](#hot)
 - [Contributing](#Contributing)
 - [License](#License)
@@ -139,6 +140,57 @@ Geekdo.search(parameters).subscribe(
     "yearPublished": 1994
   }
 ]
+```
+
+### thing
+
+```typescript
+thing({ id });
+```
+
+**Parameters**
+
+| Name | Type               | Description                                   |
+| ---- | ------------------ | --------------------------------------------- |
+| id   | number \| number[] | Specifies the id of the thing(s) to retrieve. |
+
+**Usage**
+
+```typescript
+const singleGame: ThingParameters = {
+  id: 12345
+};
+
+const multiGames: ThingParameters = {
+  id: [12345, 54321, 67890]
+};
+
+// or replace singleGame with multiGames
+Geekdo.thing(singleGame).subscribe(
+  (res) => {
+    console.log('Response:', res);
+  },
+  (err) => {
+    console.error(err);
+  }
+);
+```
+
+**Response**
+
+If you put >1 id's into `thing()`, you get an array of `ThingResult[]`
+
+```json
+{
+  "id": 12345,
+  "type": "boardgame",
+  "primaryName": "Super Awesome Boardgame",
+  "thumbnail": "https://cf.geekdo-images.com/.../some-thumbnail.jpg",
+  "image": "https://cf.geekdo-images.com/.../some-image.jpg",
+  "description": "Lorem ipsum dolor sit amet.",
+  "yearPublished": 1970,
+  "players": { "min": 1, "max": 5 }
+}
 ```
 
 ### hot

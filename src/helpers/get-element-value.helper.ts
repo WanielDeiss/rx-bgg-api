@@ -8,7 +8,8 @@ export const getElement = (element: Element) => {
 };
 
 export const getFlatElementValue = (
-  element: Element
+  element: Element | undefined
 ): string | number | undefined => {
+  if (!element) return undefined;
   return element.attributes?.value;
 };
