@@ -27,7 +27,7 @@
     "Typescript"
   ],
   "author": "Daniel Weiß <wanieldeiss@gmail.com> (https://sircode.xyz/)",
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^26.0.19",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
