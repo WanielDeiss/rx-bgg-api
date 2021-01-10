@@ -1,5 +1,7 @@
 # Geekdo SDK
 
+[![npm version](https://badge.fury.io/js/geekdo-sdk.svg)](https://www.npmjs.com/package/geekdo-sdk)
+
 Geekdo SDK is designed to be the simplest way to call the BoardGameGeek XMLAPI2 and get an fully typed object.
 
 ## Table of contents
