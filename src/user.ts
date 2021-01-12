@@ -48,9 +48,8 @@ const mapData = (elements: Element[]): UserResult => {
 
 export const user = (args: UserParameters): Observable<UserResult> => {
   const getParams: string[] = [];
-  // eslint-disable-next-line prefer-const
-  for (let [key, value] of Object.entries(args)) {
-    getParams.push(`${key}=${value}`);
+  for (const [key, value] of Object.entries(args)) {
+    getParams.push(`${key}=${encodeURIComponent(value)}`);
   }
   return RxHR.get(`${API_ROUTES.USER}/?${getParams.join('&')}`).pipe(
     pluck('body'),
