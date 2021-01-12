@@ -1,6 +1,6 @@
 import { RxHR } from '@akanass/rx-http-request';
 import { Observable } from 'rxjs';
-import { map, pluck } from 'rxjs/operators';
+import { map, pluck, tap } from 'rxjs/operators';
 import { Element } from 'xml-js/types';
 import { getElement } from './helpers/get-element-value.helper';
 import { xmlToJs } from './helpers/xml-to-js.helper';
@@ -28,10 +28,8 @@ const mapData = (elements: Element[]): SearchResult[] => {
 
 export const search = (args: SearchParameters): Observable<SearchResult[]> => {
   const getParams: string[] = [];
-  // eslint-disable-next-line prefer-const
-  for (let [key, value] of Object.entries(args)) {
-    value = key === 'query' ? value.replace(' ', '+') : value;
-    getParams.push(`${key}=${value}`);
+  for (const [key, value] of Object.entries(args)) {
+    getParams.push(`${key}=${encodeURIComponent(value)}`);
   }
   return RxHR.get(`${API_ROUTES.SEARCH}/?${getParams.join('&')}`).pipe(
     pluck('body'),
