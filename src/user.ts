@@ -1,33 +1,47 @@
 import { RxHR } from '@akanass/rx-http-request';
 import { Observable } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
-import { Element } from 'xml-js/types';
-import {
-  getElement,
-  getFlatElementValue
-} from './helpers/get-element-value.helper';
-import { xmlToJs } from './helpers/xml-to-js.helper';
+import { Element, xml2js } from 'xml-js';
+import { getAttributeByNameFromElement } from './helpers';
+import { getFlatElementValue } from './helpers/get-element-value.helper';
 import { UserParameters, UserResult } from './interfaces';
 import API_ROUTES from './routes';
+import XML_OPTIONS from './xml.options';
 
-const mapData = (elements: Element[]): UserResult => {
-  const firstname = getFlatElementValue(elements[0]);
-  const lastname = getFlatElementValue(elements[1]);
-  const avatarLink = getFlatElementValue(elements[2]);
-  const yearRegistered = Number(getFlatElementValue(elements[3]));
-  const lastLogin = getFlatElementValue(elements[4]);
-  const stateOrProvince = getFlatElementValue(elements[5]);
-  const country = getFlatElementValue(elements[6]);
-  const webaddress = getFlatElementValue(elements[7]);
-  const xboxAccount = getFlatElementValue(elements[8]);
-  const wiiAccount = getFlatElementValue(elements[9]);
-  const psnAccount = getFlatElementValue(elements[10]);
-  const battleNetAccount = getFlatElementValue(elements[11]);
-  const steamAccount = getFlatElementValue(elements[12]);
-  const traderRating = Number(getFlatElementValue(elements[13]));
-  const marketRating = Number(getFlatElementValue(elements[14]));
+const mapData = (element: Element): UserResult | undefined => {
+  if (!element.elements?.length) return undefined;
+
+  const userElement = element.elements[0];
+  const childs = userElement.elements as Element[];
+
+  const id = getAttributeByNameFromElement({
+    element: userElement,
+    name: 'id'
+  });
+  const username = getAttributeByNameFromElement({
+    element: userElement,
+    name: 'name'
+  });
+
+  const firstname = getFlatElementValue(childs[0]);
+  const lastname = getFlatElementValue(childs[1]);
+  const avatarLink = getFlatElementValue(childs[2]);
+  const yearRegistered = Number(getFlatElementValue(childs[3]));
+  const lastLogin = getFlatElementValue(childs[4]);
+  const stateOrProvince = getFlatElementValue(childs[5]);
+  const country = getFlatElementValue(childs[6]);
+  const webaddress = getFlatElementValue(childs[7]);
+  const xboxAccount = getFlatElementValue(childs[8]);
+  const wiiAccount = getFlatElementValue(childs[9]);
+  const psnAccount = getFlatElementValue(childs[10]);
+  const battleNetAccount = getFlatElementValue(childs[11]);
+  const steamAccount = getFlatElementValue(childs[12]);
+  const traderRating = Number(getFlatElementValue(childs[13]));
+  const marketRating = Number(getFlatElementValue(childs[14]));
 
   return {
+    id: Number(id),
+    username,
     firstname,
     lastname,
     avatarLink,
@@ -46,14 +60,16 @@ const mapData = (elements: Element[]): UserResult => {
   } as UserResult;
 };
 
-export const user = (args: UserParameters): Observable<UserResult> => {
+export const user = (
+  args: UserParameters
+): Observable<UserResult | undefined> => {
   const getParams: string[] = [];
   for (const [key, value] of Object.entries(args)) {
     getParams.push(`${key}=${encodeURIComponent(value)}`);
   }
   return RxHR.get(`${API_ROUTES.USER}/?${getParams.join('&')}`).pipe(
     pluck('body'),
-    map(xmlToJs),
+    map((value) => xml2js(value, XML_OPTIONS) as Element),
     map(mapData)
   );
 };

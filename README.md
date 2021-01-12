@@ -70,6 +70,8 @@ Geekdo.user(parameters).subscribe(
 
 ```json
 {
+  "id": 12345,
+  "username": "wanieldeiss",
   "firstname": "Daniel",
   "lastname": "",
   "avatarLink": "N/A",

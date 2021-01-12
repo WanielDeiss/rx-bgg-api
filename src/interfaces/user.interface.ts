@@ -11,6 +11,8 @@ export interface UserParameters {
 }
 
 export interface UserResult {
+  id: number;
+  username: string;
   firstname: string;
   lastname: string;
   avatarLink: string;
