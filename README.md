@@ -68,25 +68,25 @@ Geekdo.user(parameters).subscribe(
 
 **Response**
 
-```json
+```typescript
 {
-  "id": 12345,
-  "username": "wanieldeiss",
-  "firstname": "Daniel",
-  "lastname": "",
-  "avatarLink": "N/A",
-  "yearRegistered": 2019,
-  "lastLogin": "2021-01-05",
-  "stateOrProvince": "Bayern",
-  "country": "Germany",
-  "webaddress": "https://sircode.xyz",
-  "xboxAccount": "",
-  "wiiAccount": "",
-  "psnAccount": "",
-  "battleNetAccount": "",
-  "steamAccount": "",
-  "traderRating": 0,
-  "marketRating": 0
+  id: 12345,
+  username: "wanieldeiss",
+  firstname: "Daniel",
+  lastname: "",
+  avatarLink: "N/A",
+  yearRegistered: 2019,
+  lastLogin: "2021-01-05",
+  stateOrProvince: "Bayern",
+  country: "Germany",
+  webaddress: "https://sircode.xyz",
+  xboxAccount: "",
+  wiiAccount: "",
+  psnAccount: "",
+  battleNetAccount: "",
+  steamAccount: "",
+  traderRating: 0,
+  marketRating: 0
 }
 ```
 
@@ -125,23 +125,23 @@ Geekdo.search(parameters).subscribe(
 
 **Response**
 
-```json
+```typescript
 [
   {
-    "id": 1234,
-    "type": "boardgame",
-    "name": "7 Dans",
-    "isNameAlternate": false,
-    "yearPublished": 1988
+    id: 1234,
+    type: 'boardgame',
+    name: '7 Dans',
+    isNameAlternate: false,
+    yearPublished: 1988
   },
   {
-    "id": 4321,
-    "type": "boardgame",
-    "name": "Settlers of Sina",
-    "isNameAlternate": true,
-    "yearPublished": 1994
+    id: 4321,
+    type: 'boardgame',
+    name: 'Settlers of Sina',
+    isNameAlternate: true,
+    yearPublished: 1994
   }
-]
+];
 ```
 
 ### thing
@@ -182,16 +182,16 @@ Geekdo.thing(singleGame).subscribe(
 
 If you put >1 id's into `thing()`, you get an array of `ThingResult[]`
 
-```json
+```typescript
 {
-  "id": 12345,
-  "type": "boardgame",
-  "primaryName": "Super Awesome Boardgame",
-  "thumbnail": "https://cf.geekdo-images.com/.../some-thumbnail.jpg",
-  "image": "https://cf.geekdo-images.com/.../some-image.jpg",
-  "description": "Lorem ipsum dolor sit amet.",
-  "yearPublished": 1970,
-  "players": { "min": 1, "max": 5 }
+  id: 12345,
+  type: "boardgame",
+  primaryName: "Super Awesome Boardgame",
+  thumbnail: "https://cf.geekdo-images.com/.../some-thumbnail.jpg",
+  image: "https://cf.geekdo-images.com/.../some-image.jpg",
+  description: "Lorem ipsum dolor sit amet.",
+  yearPublished: 1970,
+  players: { "min": 1, "max": 5 }
 }
 ```
 
@@ -226,23 +226,23 @@ Geekdo.hot(parameters).subscribe(
 
 **Response**
 
-```json
+```typescript
 [
   {
-    "id": 1234,
-    "rank": 1,
-    "name": "Awesome Boardgame",
-    "thumbnail": "https://cf.geekdo-images.com/.../some.jpg",
-    "yearPublished": 2021
+    id: 1234,
+    rank: 1,
+    name: 'Awesome Boardgame',
+    thumbnail: 'https://cf.geekdo-images.com/.../some.jpg',
+    yearPublished: 2021
   },
   {
-    "id": 4321,
-    "rank": 2,
-    "name": "Another Awesome Boardgame",
-    "thumbnail": "https://cf.geekdo-images.com/.../some.jpg",
-    "yearPublished": 2020
+    id: 4321,
+    rank: 2,
+    name: 'Another Awesome Boardgame',
+    thumbnail: 'https://cf.geekdo-images.com/.../some.jpg',
+    yearPublished: 2020
   }
-]
+];
 ```
 
 ## Contributing
