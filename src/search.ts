@@ -1,6 +1,6 @@
 import { RxHR } from '@akanass/rx-http-request';
 import { Observable } from 'rxjs';
-import { map, pluck, tap } from 'rxjs/operators';
+import { map, pluck } from 'rxjs/operators';
 import { Element } from 'xml-js/types';
 import { getElement } from './helpers/get-element-value.helper';
 import { xmlToJs } from './helpers/xml-to-js.helper';
