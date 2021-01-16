@@ -30,7 +30,7 @@ $ yarn add geekdo-sdk
 
 ```typescript
 import * as Geekdo from 'geekdo-sdk';
-import { SearchParameters } from 'geekdo-sdk/interfaces';
+import { SearchParameters } from 'geekdo-sdk/dist/interfaces';
 ```
 
 Detailed informations under the referenc section
