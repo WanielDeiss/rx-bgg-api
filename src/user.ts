@@ -18,6 +18,9 @@ const mapData = (element: Element): UserResult | undefined => {
     element: userElement,
     name: 'id'
   });
+
+  if (!id) return undefined;
+
   const username = getAttributeByNameFromElement({
     element: userElement,
     name: 'name'
